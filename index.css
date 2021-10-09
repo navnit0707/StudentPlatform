@@ -1,7 +1,14 @@
+body {
+    background-color: skyblue
+}
+
 body > table{
     width: 100%;
-};
- 
+}
+
+h2 {
+    text-align: center;
+}
 table{
     border-collapse: collapse;
     text-align: center;
