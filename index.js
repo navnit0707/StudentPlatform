@@ -1,29 +1,29 @@
-var selectedRow = null
- 
-// Form Submit Function
-function onFormSubmit() {
+let selectedRow = null;
+
+document.querySelector("#form").addEventListener("submit", (event)=>{
+    // Form Submit Function
+    event.preventDefault();
     // check validity
     if (validate()) {
         // store user data
-        var formData = readFormData();
+        let formData = readFormData();
         // check empty row
-        if (selectedRow == null)
-        {
+        if (selectedRow == null) {
             // Insert New User Record
             insertNewRecord(formData);
         }
-        else
-        {
+        else {
             // Update New User Record
             updateRecord(formData);
         }
         // Reset Input Values
         resetForm();
     }
-}
+});
+
 // Get Values From Form
 function readFormData() {
-    var formData = {};
+    let formData = {};
     // Get Values From  Input
     formData["userName"] = document.getElementById("userName").value;
     formData["rollNo"] = document.getElementById("rollNo").value;
@@ -35,8 +35,8 @@ function readFormData() {
 }
 // Insert New User Record
 function insertNewRecord(data) {
-    var table = document.getElementById("stdlist").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
+    const table = document.getElementById("stdlist").getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.userName;
     cell2 = newRow.insertCell(1);
@@ -87,7 +87,7 @@ function onDelete(td) {
 }
 // Check User validation
 function validate() {
-    isValid = true;
+    let isValid = true;
     // userName validation
     if (document.getElementById("userName").value == "") {
         isValid = false;
